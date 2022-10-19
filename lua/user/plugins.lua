@@ -49,9 +49,9 @@ return packer.startup(function(use)
   use "rafamadriz/friendly-snippets"
   use "neovim/nvim-lspconfig"
   use "williamboman/nvim-lsp-installer"
+  use "doums/darcula"
 
   if PACKER_BOOTSTRAP then
-    use "doums/darcula"
     require("packer").sync()
   end
 end)

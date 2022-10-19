@@ -2,52 +2,52 @@ local opts = { noremap = true, silent = true }
 
 local term_opts = { silent = true }
 
-local keymap = vim.keymap.set
+local map = vim.keymap.set
 
-keymap("", "<Space>", "<Nop>", opts)
+map("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+map("n", "<C-h>", "<C-w>h", opts)
+map("n", "<C-j>", "<C-w>j", opts)
+map("n", "<C-k>", "<C-w>k", opts)
+map("n", "<C-l>", "<C-w>l", opts)
 
 
-keymap("n", "<leader>e", ":Lex 30<cr>", opts)
+map("n", "<leader>e", ":Lex 30<cr>", opts)
 
 
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+map("n", "<C-Up>", ":resize -2<CR>", opts)
+map("n", "<C-Down>", ":resize +2<CR>", opts)
+map("n", "<C-Left>", ":vertical resize -2<CR>", opts)
+map("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 
-keymap("n", "<A-l>", ":bnext<CR>", opts)
-keymap("n", "<A-h>", ":bprevious<CR>", opts)
+map("n", "<A-l>", ":bnext<CR>", opts)
+map("n", "<A-h>", ":bprevious<CR>", opts)
 
 
-keymap("i", "jk", "<ESC>", opts)
+map("i", "jk", "<ESC>", opts)
 
 
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+map("v", "<", "<gv", opts)
+map("v", ">", ">gv", opts)
 
 
-keymap({ "n", "v" }, "<A-k>", ":m .-2<CR>==", opts)
-keymap({ "n", "v" }, "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "p", '"_dP', opts)
+map({ "n", "v" }, "<A-k>", ":m .-2<CR>==", opts)
+map({ "n", "v" }, "<A-j>", ":m .+1<CR>==", opts)
+map("v", "p", '"_dP', opts)
 
 
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+map("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
+map("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 
-keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
-keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
-keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
-keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+map("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
+map("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
+map("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
+map("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 
 
