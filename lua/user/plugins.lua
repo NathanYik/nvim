@@ -53,6 +53,7 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig"
   use "jose-elias-alvarez/null-ls.nvim"
   use "mfussenegger/nvim-dap"
+  use "RRethy/vim-illuminate"
   use "doums/darcula"
 
   if PACKER_BOOTSTRAP then
