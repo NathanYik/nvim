@@ -47,8 +47,12 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lsp"
   use "L3MON4D3/LuaSnip"
   use "rafamadriz/friendly-snippets"
+  use "nvim-treesitter/nvim-treesitter"
+  use "williamboman/mason.nvim"
+  use "williamboman/mason-lspconfig.nvim"
   use "neovim/nvim-lspconfig"
-  use "williamboman/nvim-lsp-installer"
+  use "jose-elias-alvarez/null-ls.nvim"
+  use "mfussenegger/nvim-dap"
   use "doums/darcula"
 
   if PACKER_BOOTSTRAP then

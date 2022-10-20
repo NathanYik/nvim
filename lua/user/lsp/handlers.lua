@@ -1,5 +1,7 @@
 local M = {}
 
+local map = vim.keymap.set
+
 -- local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 -- if status_cmp_ok then
 --   print 'oof'
@@ -20,10 +22,7 @@ M.setup = function()
   end
 
   local config = {
-    virtual_text = {
-      prefix = " ",
-      spacing = 4,
-    },
+    virtual_text = false,
     signs = true,
     underline = true,
     update_in_insert = false,
@@ -59,20 +58,28 @@ local function lsp_highlight_document(client)
 end
 
 local function lsp_keymaps(bufnr)
-  local opts = { noremap = true, silent = true }
-  local map = vim.keymap.set
-  map(bufnr, "n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  map(bufnr, "n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  map(bufnr, "n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
-  map(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-  map(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-  map(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-  map(bufnr, "n", "gl", '<cmd>lua vim.lsp.diagnostic.show_line.diagnostics({ border = "rounded" })<CR>', opts)
-  map(bufnr, "n", "[d", '<cmd>lua vim.lsp.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
-  map(bufnr, "n", "]d", '<cmd>lua vim.lsp.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
-  map(bufnr, "n", "<leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
+  local opts = { noremap = true, silent = true, buffer = bufnr }
+--  vim.diagnostic.open_float
+  map("n", "gD", vim.lsp.buf.declaration, opts)
+  map("n", "gd", vim.lsp.buf.definition, opts)
+  map("n", "K", vim.lsp.buf.hover, opts)
+  map("n", "gi", vim.lsp.buf.implementation, opts)
+  map("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+  map("n", "gr", vim.lsp.buf.references, opts)
+  map("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
+  map("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
+  map("n", "<space>wl", vim.lsp.buf.list_workspace_folders, opts)
+  map("n", "<space>D", vim.lsp.buf.type_definition, opts)
+  map("n", "<space>rn", vim.lsp.buf.rename, opts)
+  map("n", "<space>ca", vim.lsp.buf.code_action, opts)
+  map("n", "<space>f", function() vim.lsp.buf.format({ async = true }) end, opts)
+  map("n", "gl", vim.diagnostic.open_float, opts)
+--  map("n", "gl", '<cmd>lua vim.lsp.diagnostic.show_line.diagnostics({ border = "rounded" })<CR>', opts)
+--  map("n", "[d", '<cmd>lua vim.lsp.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
+--  map("n", "]d", '<cmd>lua vim.lsp.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
+--  map("n", "<leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
 
-  vim.cmd [[ commmand! Format execute 'lua vim.lsp.buf.formatting()' ]]
+--  vim.cmd [[ commmand! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
 M.on_attach = function(client, bufnr)
@@ -80,7 +87,7 @@ M.on_attach = function(client, bufnr)
     client.resolved_capabilities.document_formatting = false
   end
   lsp_keymaps(bufnr)
-  lsp_highlight_document(client)
+ -- lsp_highlight_document(client)
 end
 
 return M
