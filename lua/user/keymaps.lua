@@ -5,6 +5,8 @@ local term_opts = { silent = true }
 local map = vim.keymap.set
 
 local builtin = require("telescope.builtin")
+local nt_api = require("nvim-tree.api")
+local bufferline = require("bufferline")
 
 map("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
@@ -17,7 +19,7 @@ map("n", "<C-k>", "<C-w>k", opts)
 map("n", "<C-l>", "<C-w>l", opts)
 
 
-map("n", "<leader>e", ":Lex 30<cr>", opts)
+map("n", "<leader>e", nt_api.tree.toggle, opts)
 
 
 map("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -52,10 +54,33 @@ map("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 map("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 
-map("n", "<leader>ff", function() builtin.find_files(require('telescope.themes').get_dropdown({ previewer = false })) end , opts)
-map("n", "<leader>fg", function() builtin.live_grep(require('telescope.themes').get_dropdown({})) end , opts)
-map("n", "<leader>fb", function() builtin.buffers(require('telescope.themes').get_dropdown({ previewer = false })) end , opts)
-map("n", "<leader>fh", function() builtin.help_tags(require('telescope.themes').get_dropdown({})) end , opts)
+map("n", "<leader>ff", function() builtin.find_files(require('telescope.themes').get_dropdown({ previewer = false })) end
+  , opts)
+map("n", "<leader>fg", function() builtin.live_grep(require('telescope.themes').get_dropdown({})) end, opts)
+map("n", "<leader>fb", function() builtin.buffers(require('telescope.themes').get_dropdown({ previewer = false })) end,
+  opts)
+map("n", "<leader>fh", function() builtin.help_tags(require('telescope.themes').get_dropdown({})) end, opts)
+
+
+map("n", "<leader>1", function() bufferline.go_to_buffer(1) end, opts)
+map("n", "<leader>2", function() bufferline.go_to_buffer(2) end, opts)
+map("n", "<leader>3", function() bufferline.go_to_buffer(3) end, opts)
+map("n", "<leader>4", function() bufferline.go_to_buffer(4) end, opts)
+map("n", "<leader>5", function() bufferline.go_to_buffer(5) end, opts)
+map("n", "<leader>6", function() bufferline.go_to_buffer(6) end, opts)
+map("n", "<leader>7", function() bufferline.go_to_buffer(7) end, opts)
+map("n", "<leader>8", function() bufferline.go_to_buffer(8) end, opts)
+map("n", "<leader>9", function() bufferline.go_to_buffer(9) end, opts)
+map("n", "<leader>$", function() bufferline.go_to_buffer(-1) end, opts)
+--map("n", "<leader>bcl", bufferline.close_left, opts)
+--map("n", "<leader>bcr", bufferline.close_right, opts)
+map("n", "<leader>bca", function()
+  for _, e in ipairs(bufferline.get_elements().elements) do
+    vim.schedule(function()
+      vim.cmd("bd " .. e.id)
+    end)
+  end
+end, opts)
 
 
 

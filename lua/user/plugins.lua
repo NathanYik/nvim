@@ -70,6 +70,10 @@ return packer.startup(function(use)
   use "folke/tokyonight.nvim"
   use "mg979/vim-visual-multi"
   use "lewis6991/gitsigns.nvim"
+  use "kyazdani42/nvim-web-devicons"
+  use "kyazdani42/nvim-tree.lua"
+  use "akinsho/bufferline.nvim"
+  use "moll/vim-bbye"
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()

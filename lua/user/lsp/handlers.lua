@@ -7,7 +7,7 @@ local map = vim.keymap.set
 --   print 'oof'
 --   return
 -- end
-cmp_nvim_lsp = require("cmp_nvim_lsp")
+local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -15,11 +15,16 @@ M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
 M.setup = function()
   local signs = {
-    { name = "DiagnosticSignError", text = "" },
-    { name = "DiagnosticSignWarning", text = "" },
-    { name = "DiagnosticSignInfo", text = "" },
-    { name = "DiagnosticSignHint", text = "" },
+    { name = "DiagnosticSignError", text = "" },
+    { name = "DiagnosticSignWarn", text = "" },
+    { name = "DiagnosticSignInfo", text = "" },
+    { name = "DiagnosticSignHint", text = "" },
   }
+
+  vim.api.nvim_set_hl(0, "DiagnosticSignError", { fg = "#FF0000", bg = "#313335" })
+  vim.api.nvim_set_hl(0, "DiagnosticSignWarn", { fg = "#FFA500", bg = "#313335" })
+  vim.api.nvim_set_hl(0, "DiagnosticSignInfo", { fg = "#ADD8E6", bg = "#313335" })
+  vim.api.nvim_set_hl(0, "DiagnosticSignHint", { fg = "#D3D3D3", bg = "#313335" })
 
   for _, sign in ipairs(signs) do
     vim.fn.sign_define(sign.name, { text = sign.text, texthl = sign.name, numhl = "" })
