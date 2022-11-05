@@ -1,10 +1,10 @@
 require("gitsigns").setup({
   signs = {
-    add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-    change = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+    add = { hl = "GitSignsAdd", text = "█", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+    change = { hl = "GitSignsChange", text = "█", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
     delete = { hl = "GitSignsDelete", text = "▶", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
     topdelete = { hl = "GitSignsDelete", text = "▶", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-    changedelete = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+    changedelete = { hl = "GitSignsChange", text = "█", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
   },
   current_line_blame = true,
   on_attach = function(bufnr)
@@ -47,6 +47,6 @@ require("gitsigns").setup({
   end
 })
 
-vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = "#313335", bg = "#384c38" })
-vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "#313335", bg = "#374752" })
+vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = "#384c38", bg = "#313335" })
+vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "#374752", bg = "#313335" })
 vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = "#63757b", bg = "#313335" })
