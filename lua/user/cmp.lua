@@ -12,7 +12,7 @@ require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_back_space = function()
   local col = cmp.col('.') - 1
-  return col == 0 or cmp.getline("."):sub(col, col):match "%s" 
+  return col == 0 or cmp.getline("."):sub(col, col):match "%s"
 end
 
 local kind_icons = {
@@ -91,7 +91,7 @@ cmp.setup({
       vim_item.menu = ({
         nvim_lsp = "[LSP]",
         nvim_lua = "[Lua]",
-        luasnip = "[LuaSnip]",
+        luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
       })[entry.source.name]

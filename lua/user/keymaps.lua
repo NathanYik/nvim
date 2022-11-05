@@ -4,6 +4,8 @@ local term_opts = { silent = true }
 
 local map = vim.keymap.set
 
+local builtin = require("telescope.builtin")
+
 map("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -50,6 +52,10 @@ map("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 map("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 
+map("n", "<leader>ff", function() builtin.find_files(require('telescope.themes').get_dropdown({ previewer = false })) end , opts)
+map("n", "<leader>fg", function() builtin.live_grep(require('telescope.themes').get_dropdown({})) end , opts)
+map("n", "<leader>fb", function() builtin.buffers(require('telescope.themes').get_dropdown({ previewer = false })) end , opts)
+map("n", "<leader>fh", function() builtin.help_tags(require('telescope.themes').get_dropdown({})) end , opts)
 
 
 

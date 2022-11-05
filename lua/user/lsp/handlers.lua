@@ -14,11 +14,15 @@ M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
 M.setup = function()
-  local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
+  local signs = {
+    { name = "DiagnosticSignError", text = "" },
+    { name = "DiagnosticSignWarning", text = "" },
+    { name = "DiagnosticSignInfo", text = "" },
+    { name = "DiagnosticSignHint", text = "" },
+  }
 
-  for type, icon in pairs(signs) do
-    local hl = "LspDiagnosticsSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+  for _, sign in ipairs(signs) do
+    vim.fn.sign_define(sign.name, { text = sign.text, texthl = sign.name, numhl = "" })
   end
 
   local config = {
@@ -36,9 +40,9 @@ M.setup = function()
 
   vim.diagnostic.config(config)
 
-  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with( vim.lsp.handlers.hover, { border = "rounded" })
+  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 
-  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with( vim.lsp.handlers.signature_help, { border = "rounded" })
+  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
 end
 
@@ -50,7 +54,7 @@ local function lsp_highlight_document(client)
         autocmd! * <buffer>
         autocmd CursorHold <buffer> lua vim.diagnostic.open_float()
       augroup END
-    ]],
+    ]] ,
       false
     )
   end
@@ -64,25 +68,28 @@ local function lsp_keymaps(bufnr)
   map("n", "gi", vim.lsp.buf.implementation, opts)
   map("n", "<C-k>", vim.lsp.buf.signature_help, opts)
   map("n", "gr", vim.lsp.buf.references, opts)
-  map("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
-  map("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
-  map("n", "<space>wl", vim.lsp.buf.list_workspace_folders, opts)
-  map("n", "<space>D", vim.lsp.buf.type_definition, opts)
-  map("n", "<space>rn", vim.lsp.buf.rename, opts)
-  map("n", "<space>ca", vim.lsp.buf.code_action, opts)
-  map("n", "<space>f", function() vim.lsp.buf.format({ async = true }) end, opts)
+  map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
+  map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
+  map("n", "<leader>wl", vim.lsp.buf.list_workspace_folders, opts)
+  map("n", "<leader>D", vim.lsp.buf.type_definition, opts)
+  map("n", "<leader>rn", vim.lsp.buf.rename, opts)
+  map("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+  map("n", "<leader>fm", vim.lsp.buf.formatting_sync, opts)
   map("n", "gl", vim.diagnostic.open_float, opts)
---  map("n", "gl", '<cmd>lua vim.lsp.diagnostic.show_line.diagnostics({ border = "rounded" })<CR>', opts)
---  map("n", "[d", '<cmd>lua vim.lsp.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
---  map("n", "]d", '<cmd>lua vim.lsp.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
---  map("n", "<leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
+  --  map("n", "gl", '<cmd>lua vim.lsp.diagnostic.show_line.diagnostics({ border = "rounded" })<CR>', opts)
+  --  map("n", "[d", '<cmd>lua vim.lsp.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
+  --  map("n", "]d", '<cmd>lua vim.lsp.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
+  --  map("n", "<leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
 
---  vim.cmd [[ commmand! Format execute 'lua vim.lsp.buf.formatting()' ]]
+  --  vim.cmd [[ commmand! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
 M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.documentFormattingProvider = false
+  end
+  if client.name == "sumneki_lua" then
+    client.server_capabilities.documentFormattingProvider = false
   end
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)

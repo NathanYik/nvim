@@ -11,6 +11,7 @@ local options = {
   hlsearch = true,
   ignorecase = true,
   smartcase = true,
+  signcolumn = "yes:1",
   smartindent = true,
   splitbelow = true,
   splitright = true,
