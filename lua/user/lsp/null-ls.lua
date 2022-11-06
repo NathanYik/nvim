@@ -9,6 +9,8 @@ null_ls.setup({
 	sources = {
 		formatting.stylua,
 		diagnostics.eslint_d,
-		formatting.prettierd,
+		formatting.prettierd.with({
+			extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+		}),
 	},
 })
