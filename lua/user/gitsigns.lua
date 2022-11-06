@@ -6,6 +6,9 @@ require("gitsigns").setup({
     topdelete = { hl = "GitSignsDelete", text = "▶", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
     changedelete = { hl = "GitSignsChange", text = "█", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
   },
+  preview_config = {
+    border = "rounded",
+  },
   current_line_blame = true,
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
@@ -30,8 +33,8 @@ require("gitsigns").setup({
     end, { expr = true })
 
     -- Actions
-    map({ 'n', 'v' }, '<leader>hs', ':Gitsigns stage_hunk<CR>')
-    map({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<CR>')
+    map({ 'n', 'v' }, '<leader>hs', gs.stage_hunk)
+    map({ 'n', 'v' }, '<leader>hr', gs.reset_hunk)
     map('n', '<leader>hS', gs.stage_buffer)
     map('n', '<leader>hu', gs.undo_stage_hunk)
     map('n', '<leader>hR', gs.reset_buffer)

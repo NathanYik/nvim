@@ -52,7 +52,7 @@ M.setup = function()
 end
 
 local function lsp_highlight_document(client)
-  if client.resolved_capabilities.document_highlight then
+  if client.server_capabilities.document_highlight then
     vim.api.nvim_exec(
       [[
       augroup lsp_document_highlight
@@ -79,7 +79,7 @@ local function lsp_keymaps(bufnr)
   map("n", "<leader>D", vim.lsp.buf.type_definition, opts)
   map("n", "<leader>rn", vim.lsp.buf.rename, opts)
   map("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-  map("n", "<leader>fm", vim.lsp.buf.formatting_sync, opts)
+  map("n", "<leader>fm", vim.lsp.buf.format, opts)
   map("n", "gl", vim.diagnostic.open_float, opts)
   --  map("n", "gl", '<cmd>lua vim.lsp.diagnostic.show_line.diagnostics({ border = "rounded" })<CR>', opts)
   --  map("n", "[d", '<cmd>lua vim.lsp.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
@@ -91,10 +91,12 @@ end
 
 M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
-    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.document_formatting = false
+    client.server_capabilities.document_range_formatting = false
   end
-  if client.name == "sumneki_lua" then
-    client.server_capabilities.documentFormattingProvider = false
+  if client.name == "sumneko_lua" then
+    client.server_capabilities.document_formatting = false
+    client.server_capabilities.document_range_formatting = false
   end
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)

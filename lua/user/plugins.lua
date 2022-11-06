@@ -39,6 +39,7 @@ return packer.startup(function(use)
   use "tpope/vim-surround"
   use "tpope/vim-repeat"
   use "windwp/nvim-autopairs"
+  use "windwp/nvim-ts-autotag"
   use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-buffer"
   use "hrsh7th/cmp-path"
@@ -49,7 +50,9 @@ return packer.startup(function(use)
   use "rafamadriz/friendly-snippets"
   use {
     "nvim-treesitter/nvim-treesitter",
-    run = ':TSUpdate' }
+    commit = "e53950f646b0c11624280ee7c4eff97a9e0904f1",
+    run = ':TSUpdate'
+  }
   use {
     "nvim-telescope/telescope.nvim",
     tag = '0.1.0'

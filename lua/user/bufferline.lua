@@ -17,10 +17,10 @@ bufferline.setup {
       end
       return s
     end,
-    separator_style = "slant",
+    separator_style = "thin",
     hover = {
       enabled = true,
-      delay = 150,
+      delay = 0,
       reveal = { "close" }
     }
   },
