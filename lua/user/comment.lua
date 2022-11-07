@@ -3,9 +3,9 @@ require("Comment").setup({
 		local U = require("Comment.utils")
 		local location = nil
 
-		if ctx.mode == U.ctype.block then
+		if ctx.ctype == U.ctype.blockwise then
 			location = require("ts_context_commentstring.utils").get_cursor_location()
-		elseif ctx.mode == "visual" then
+		elseif ctx.cmotion == U.cmotion.v or ctx.cmotion == U.cmotion.V then
 			location = require("ts_context_commentstring.utils").get_visual_start_location()
 		end
 

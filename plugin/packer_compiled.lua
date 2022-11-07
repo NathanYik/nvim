@@ -174,6 +174,11 @@ _G.packer_plugins = {
     path = "/home/nathan-yik/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-toggleterm.lua"] = {
+    loaded = true,
+    path = "/home/nathan-yik/.local/share/nvim/site/pack/packer/start/nvim-toggleterm.lua",
+    url = "https://github.com/akinsho/nvim-toggleterm.lua"
+  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/home/nathan-yik/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
@@ -233,6 +238,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/nathan-yik/.local/share/nvim/site/pack/packer/start/vim-bbye",
     url = "https://github.com/moll/vim-bbye"
+  },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/home/nathan-yik/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
   },
   ["vim-illuminate"] = {
     loaded = true,

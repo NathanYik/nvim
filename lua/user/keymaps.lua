@@ -7,6 +7,7 @@ local map = vim.keymap.set
 local builtin = require("telescope.builtin")
 local nt_api = require("nvim-tree.api")
 local bufferline = require("bufferline")
+local Terminal = require("toggleterm.terminal").Terminal
 
 map("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
@@ -39,10 +40,7 @@ map("v", "p", '"_dP', opts)
 map("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 map("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
-map("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
-map("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
-map("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
-map("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+map("n", "<leader>gg", function() Terminal:new({ cmd = "lazygit", hidden = true }):toggle() end, opts)
 
 map("n", "<leader>ff", builtin.find_files, opts)
 map("n", "<leader>fg", builtin.live_grep, opts)

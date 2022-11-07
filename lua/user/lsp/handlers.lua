@@ -88,7 +88,6 @@ M.on_attach = function(client, bufnr)
 		client.server_capabilities.document_range_formatting = false
 	end
 	lsp_keymaps(bufnr)
-	--[[ lsp_highlight_document(client) ]]
 end
 
 return M
