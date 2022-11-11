@@ -1,14 +1,16 @@
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
+  print "unlucky"
 	return
 end
 
 local luasnip_status_ok, luasnip = pcall(require, "luasnip")
 if not luasnip_status_ok then
+  print "damnit"
 	return
 end
 
-require("luasnip/loaders/from_vscode").lazy_load()
+require("luasnip.loaders.from_vscode").lazy_load()
 
 local check_back_space = function()
 	local col = cmp.col(".") - 1
@@ -61,28 +63,28 @@ cmp.setup({
 			c = cmp.mapping.close(),
 		}),
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
-		--['<Tab>'] = cmp.mapping(function(fallback)
-		--  if cmp.visible() then
-		--    cmp.select_next_item()
-		--  elseif luasnip.expand then
-		--    luasnip.expand()
-		--  elseif luasnip.expand_or_jumpable() then
-		--    luasnip.expand_or_jump()
-		--  elseif check_back_space() then
-		--    fallback()
-		--  else
-		--    fallback()
-		--  end
-		--end, { 'i', 's' }),
-		--['<S-Tab>'] = cmp.mapping(function(fallback)
-		--  if cmp.visible() then
-		--    cmp.select_prev_item()
-		--  elseif luasnip.jumpable(-1) then
-		--    luasnip.jump(-1)
-		--  else
-		--    fallback()
-		--  end
-		--end, { 'i', 's' }),
+		--[[ ['<Tab>'] = cmp.mapping(function(fallback) ]]
+		--[[   if cmp.visible() then ]]
+		--[[     cmp.select_next_item() ]]
+		--[[   elseif luasnip.expand then ]]
+		--[[     luasnip.expand() ]]
+		--[[   elseif luasnip.expand_or_jumpable() then ]]
+		--[[     luasnip.expand_or_jump() ]]
+		--[[   elseif check_back_space() then ]]
+		--[[     fallback() ]]
+		--[[   else ]]
+		--[[     fallback() ]]
+		--[[   end ]]
+		--[[ end, { 'i', 's' }), ]]
+		--[[ ['<S-Tab>'] = cmp.mapping(function(fallback) ]]
+		--[[   if cmp.visible() then ]]
+		--[[     cmp.select_prev_item() ]]
+		--[[   elseif luasnip.jumpable(-1) then ]]
+		--[[     luasnip.jump(-1) ]]
+		--[[   else ]]
+		--[[     fallback() ]]
+		--[[   end ]]
+		--[[ end, { 'i', 's' }), ]]
 	},
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
