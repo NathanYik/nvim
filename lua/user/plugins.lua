@@ -54,12 +54,17 @@ return packer.startup(function(use)
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		commit = "e53950f646b0c11624280ee7c4eff97a9e0904f1",
-		run = ":TSUpdate",
+		run = function()
+			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+			ts_update()
+		end,
 	})
 	use({
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.0",
 	})
+  use({"nvim-treesitter/nvim-treesitter-textobjects", requires = {"nvim-treesitter/nvim-treesitter"}})
+  use({"nvim-treesitter/nvim-treesitter-context", requires = {"nvim-treesitter/nvim-treesitter"}})
 	use({
 		"nvim-telescope/telescope-fzf-native.nvim",
 		run = "make",

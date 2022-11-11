@@ -2,11 +2,6 @@ local M = {}
 
 local map = vim.keymap.set
 
--- local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
--- if status_cmp_ok then
---   print 'oof'
---   return
--- end
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -33,11 +28,9 @@ M.setup = function()
 	local config = {
 		virtual_text = false,
 		signs = true,
-		underline = true,
 		update_in_insert = false,
 		severity_sort = true,
 		float = {
-			focusable = true,
 			border = "rounded",
 			source = "always",
 		},
@@ -72,10 +65,10 @@ local function lsp_keymaps(bufnr)
 	map("n", "<leader>rn", vim.lsp.buf.rename, opts)
 	map("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 	map("n", "<leader>fm", vim.lsp.buf.format, opts)
+  map("n", "<leader>q", vim.diagnostic.setloclist, opts)
 	map("n", "gl", vim.diagnostic.open_float, opts)
 	map("n", "[d", vim.diagnostic.goto_prev, opts)
 	map("n", "]d", vim.diagnostic.goto_next, opts)
-	map("n", "]d", vim.diagnostic.setloclist, opts)
 end
 
 M.on_attach = function(client, bufnr)
