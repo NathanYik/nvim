@@ -18,10 +18,10 @@ map("n", "<C-l>", "<C-w>l", opts)
 
 map("n", "<leader>e", nt_api.tree.toggle, opts)
 
-map("n", "<C-Up>", ":resize -2<CR>", opts)
-map("n", "<C-Down>", ":resize +2<CR>", opts)
-map("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-map("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+map("n", "<A-Up>", ":resize -2<CR>", opts)
+map("n", "<A-Down>", ":resize +2<CR>", opts)
+map("n", "<A-Left>", ":vertical resize -2<CR>", opts)
+map("n", "<A-Right>", ":vertical resize +2<CR>", opts)
 
 map("n", "<A-l>", ":bnext<CR>", opts)
 map("n", "<A-h>", ":bprevious<CR>", opts)
@@ -46,6 +46,7 @@ map("n", "<leader>ff", builtin.find_files, opts)
 map("n", "<leader>fg", builtin.live_grep, opts)
 map("n", "<leader>fb", builtin.buffers, opts)
 map("n", "<leader>fh", builtin.help_tags, opts)
+map("n", "<leader>fp", require('telescope').extensions.projects.projects, opts)
 
 map("n", "<leader>1", function()
   buffline.go_to(1)

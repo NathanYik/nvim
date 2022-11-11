@@ -88,6 +88,7 @@ return packer.startup(function(use)
 	use("akinsho/nvim-toggleterm.lua")
 	use("nvim-lualine/lualine.nvim")
 	use("moll/vim-bbye")
+	use("ahmedkhalf/project.nvim")
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

@@ -44,6 +44,16 @@ telescope.setup({
       },
 		},
 	},
+  extensions = {
+    projects = {
+			theme = "dropdown",
+      layout_config = {
+        mirror = true,
+        anchor = "N",
+      },
+    }
+  }
 })
 
 telescope.load_extension("fzf")
+telescope.load_extension("projects")
