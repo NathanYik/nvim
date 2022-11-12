@@ -1,8 +1,8 @@
 local M = {}
 
 local map = vim.keymap.set
-
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
+
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -65,7 +65,7 @@ local function lsp_keymaps(bufnr)
 	map("n", "<leader>rn", vim.lsp.buf.rename, opts)
 	map("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 	map("n", "<leader>fm", vim.lsp.buf.format, opts)
-  map("n", "<leader>q", vim.diagnostic.setloclist, opts)
+	map("n", "<leader>q", vim.diagnostic.setloclist, opts)
 	map("n", "gl", vim.diagnostic.open_float, opts)
 	map("n", "[d", vim.diagnostic.goto_prev, opts)
 	map("n", "]d", vim.diagnostic.goto_next, opts)
