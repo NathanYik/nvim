@@ -8,7 +8,7 @@ telescope.setup({
 				["<esc>"] = actions.close,
 			},
 		},
-    prompt_prefix = "🔍 ",
+    prompt_prefix = " ",
     selection_caret = " ",
     multi_icon = " ",
     sorting_strategy = "ascending",
