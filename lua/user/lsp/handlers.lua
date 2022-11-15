@@ -3,7 +3,6 @@ local M = {}
 local map = vim.keymap.set
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
@@ -50,6 +49,12 @@ vim.api.nvim_create_autocmd("CursorHold", {
 	group = vim.api.nvim_create_augroup("lsp_open_float_on_hover", {}),
 })
 
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*",
+	command = "lua vim.lsp.buf.format()",
+	group = vim.api.nvim_create_augroup("format_on_save", {}),
+})
+
 local function lsp_keymaps(bufnr)
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 	map("n", "gD", vim.lsp.buf.declaration, opts)
@@ -72,14 +77,18 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-	if client.name == "tsserver" then
-		client.server_capabilities.document_formatting = false
-		client.server_capabilities.document_range_formatting = false
-	end
-	if client.name == "sumneko_lua" then
-		client.server_capabilities.document_formatting = false
-		client.server_capabilities.document_range_formatting = false
-	end
+	--[[ if client.name == "tsserver" then ]]
+	--[[   client.server_capabilities.document_formatting = false ]]
+	--[[   client.server_capabilities.document_range_formatting = false ]]
+	--[[ end ]]
+	--[[ if client.name == "sumneko_lua" then ]]
+	--[[   client.server_capabilities.document_formatting = false ]]
+	--[[   client.server_capabilities.document_range_formatting = false ]]
+	--[[ end ]]
+	--[[ if client.name ~= "html" then ]]
+	client.server_capabilities.documentFormattingProvider = false
+	client.server_capabilities.documentRangeFormattingProvider = false
+	--[[ end ]]
 	lsp_keymaps(bufnr)
 end
 

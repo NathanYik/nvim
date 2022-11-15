@@ -10,10 +10,10 @@ end
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
-local check_back_space = function()
-	local col = cmp.col(".") - 1
-	return col == 0 or cmp.getline("."):sub(col, col):match("%s")
-end
+--[[ local check_back_space = function() ]]
+--[[ 	local col = cmp.col(".") - 1 ]]
+--[[ 	return col == 0 or cmp.getline("."):sub(col, col):match("%s") ]]
+--[[ end ]]
 
 local kind_icons = {
 	Text = "",
@@ -110,9 +110,8 @@ cmp.setup({
 		select = true,
 	},
 	window = {
-		documentation = {
-			border = "rounded",
-		},
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
 	},
 	experimental = {
 		ghost_text = false,

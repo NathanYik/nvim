@@ -2,13 +2,6 @@ local opts = { noremap = true, silent = true }
 
 local map = vim.keymap.set
 
-local builtin = require("telescope.builtin")
-local nt_api = require("nvim-tree.api")
-local buffline = require("bufferline")
-local terminal = require("toggleterm.terminal").Terminal
-local dap = require("dap")
-local dapui = require("dapui")
-
 map("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -18,7 +11,7 @@ map("n", "<C-j>", "<C-w>j", opts)
 map("n", "<C-k>", "<C-w>k", opts)
 map("n", "<C-l>", "<C-w>l", opts)
 
-map("n", "<leader>e", nt_api.tree.toggle, opts)
+map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts)
 
 map("n", "<A-Up>", ":resize -2<CR>", opts)
 map("n", "<A-Down>", ":resize +2<CR>", opts)
@@ -40,73 +33,38 @@ map("v", "p", '"_dP', opts)
 map("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 map("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
-map("n", "<leader>gg", function()
-	terminal:new({ cmd = "lazygit", hidden = true }):toggle()
-end, opts)
+map("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 
-map("n", "<leader>ff", builtin.find_files, opts)
-map("n", "<leader>fg", builtin.live_grep, opts)
-map("n", "<leader>fb", builtin.buffers, opts)
-map("n", "<leader>fh", builtin.help_tags, opts)
-map("n", "<leader>fp", require("telescope").extensions.projects.projects, opts)
+map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", opts)
+map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", opts)
+map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", opts)
+map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", opts)
+map("n", "<leader>fp", "<cmd>Telescope projects<CR>", opts)
 
-map("n", "<leader>1", function()
-	buffline.go_to(1)
-end, opts)
-map("n", "<leader>2", function()
-	buffline.go_to(2)
-end, opts)
-map("n", "<leader>3", function()
-	buffline.go_to(3)
-end, opts)
-map("n", "<leader>4", function()
-	buffline.go_to(4)
-end, opts)
-map("n", "<leader>5", function()
-	buffline.go_to(5)
-end, opts)
-map("n", "<leader>6", function()
-	buffline.go_to(6)
-end, opts)
-map("n", "<leader>7", function()
-	buffline.go_to(7)
-end, opts)
-map("n", "<leader>8", function()
-	buffline.go_to(8)
-end, opts)
-map("n", "<leader>9", function()
-	buffline.go_to(9)
-end, opts)
-map("n", "<leader>$", function()
-	buffline.go_to(-1)
-end, opts)
+map("n", "<leader>1", "<cmd>BufferLineGoToBuffer 1<CR>", opts)
+map("n", "<leader>2", "<cmd>BufferLineGoToBuffer 2<CR>", opts)
+map("n", "<leader>3", "<cmd>BufferLineGoToBuffer 3<CR>", opts)
+map("n", "<leader>4", "<cmd>BufferLineGoToBuffer 4<CR>", opts)
+map("n", "<leader>5", "<cmd>BufferLineGoToBuffer 5<CR>", opts)
+map("n", "<leader>6", "<cmd>BufferLineGoToBuffer 6<CR>", opts)
+map("n", "<leader>7", "<cmd>BufferLineGoToBuffer 7<CR>", opts)
+map("n", "<leader>8", "<cmd>BufferLineGoToBuffer 8<CR>", opts)
+map("n", "<leader>9", "<cmd>BufferLineGoToBuffer 9<CR>", opts)
+map("n", "<leader>$", "<cmd>BufferLineGoToBuffer -1<CR>", opts)
 map("n", "<leader>bcc", "<cmd>Bdelete<CR>", opts)
-map("n", "<leader>bcl", function()
-	buffline.close_in_direction("left")
-end, opts)
-map("n", "<leader>bcr", function()
-	buffline.close_in_direction("right")
-end, opts)
+map("n", "<leader>bcl", "<cmd>BufferLineCloseLeft", opts)
+map("n", "<leader>bcr", "<cmd>BufferLineCloseRight", opts)
 map("n", "<leader>bca", function()
-	for _, e in ipairs(buffline.get_elements().elements) do
+	for _, e in ipairs(require("bufferline").get_elements().elements) do
 		vim.schedule(function()
 			vim.cmd("bd " .. e.id)
 		end)
 	end
 end, opts)
 
---[[ map("n", "<Leader>db", "<CMD>lua require('dap').toggle_breakpoint()<CR>", opts) ]]
---[[ map("n", "<Leader>dc", "<CMD>lua require('dap').continue()<CR>", opts) ]]
---[[ map("n", "<Leader>dd", "<CMD>lua require('dap').continue()<CR>", opts) ]]
---[[ map("n", "<Leader>dh", "<CMD>lua require('dapui').eval()<CR>", opts) ]]
---[[ map("n", "<Leader>di", "<CMD>lua require('dap').step_into()<CR>", opts) ]]
---[[ map("n", "<Leader>do", "<CMD>lua require('dap').step_out()<CR>", opts) ]]
---[[ map("n", "<Leader>dO", "<CMD>lua require('dap').step_over()<CR>", opts) ]]
---[[ map("n", "<Leader>dt", "<CMD>lua require('dap').terminate()<CR>", opts) ]]
-
-map("n", "<Leader>db", dap.toggle_breakpoint, opts)
-map("n", "<Leader>dc", dap.continue, opts)
-map("n", "<Leader>dh", dapui.eval, opts)
-map("n", "<Leader>di", dap.step_into, opts)
-map("n", "<Leader>do", dap.step_out, opts)
-map("n", "<Leader>dO", dap.step_over, opts)
+map("n", "<Leader>db", "<cmd>lua require('dap').toggle_breakpoint()<CR>", opts)
+map("n", "<Leader>dc", "<cmd>lua require('dap').continue()<CR>", opts)
+map("n", "<Leader>dh", "<cmd>lua require('dapui').eval()<CR>", opts)
+map("n", "<Leader>di", "<cmd>lua require('dap').step_into()<CR>", opts)
+map("n", "<Leader>do", "<cmd>lua require('dap').step_out()<CR>", opts)
+map("n", "<Leader>dO", "<cmd>lua require('dap').step_over()<CR>", opts)
