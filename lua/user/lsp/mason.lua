@@ -4,6 +4,8 @@ local servers = {
 	"html",
 	"jsonls",
 	"tsserver",
+	"emmet_ls",
+	"marksman",
 }
 
 require("mason").setup()
