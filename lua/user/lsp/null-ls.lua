@@ -7,6 +7,7 @@ local code_actions = null_ls.builtins.code_actions
 null_ls.setup({
 	sources = {
 		--[[ diagnostics.eslint_d, ]]
+		require("typescript.extensions.null-ls.code-actions"),
 		code_actions.gitsigns,
 		formatting.stylua,
 		formatting.prettierd.with({

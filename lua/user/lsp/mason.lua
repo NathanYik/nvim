@@ -31,5 +31,12 @@ for _, server in pairs(servers) do
 		opts = vim.tbl_deep_extend("force", opts, conf_opts)
 	end
 
+	--[[ if server == "tsserver" then ]]
+	--[[ 	require("typescript").setup({ ]]
+	--[[ 		disable_commands = true, ]]
+	--[[ 		server = opts, ]]
+	--[[ 	}) ]]
+	--[[ else ]]
 	lspconfig[server].setup(opts)
+	--[[ end ]]
 end

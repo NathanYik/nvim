@@ -91,6 +91,7 @@ return packer.startup(function(use)
 	use("moll/vim-bbye")
 	use("ahmedkhalf/project.nvim")
 	use("lewis6991/impatient.nvim")
+	use("jose-elias-alvarez/typescript.nvim")
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
