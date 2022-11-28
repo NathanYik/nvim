@@ -11,8 +11,7 @@ null_ls.setup({
 		code_actions.gitsigns,
 		formatting.stylua,
 		formatting.prettierd.with({
-			--[[ disabled_filetypes = { "html" }, ]]
-			extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+			extra_args = { "--no-semi", "--single-quote" },
 		}),
 	},
 })
