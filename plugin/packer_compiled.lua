@@ -174,6 +174,11 @@ _G.packer_plugins = {
     path = "/home/nathan-yik/.local/share/nvim/site/pack/packer/start/neotest-rspec",
     url = "https://github.com/olimorris/neotest-rspec"
   },
+  ["neotest-vitest"] = {
+    loaded = true,
+    path = "/home/nathan-yik/.local/share/nvim/site/pack/packer/start/neotest-vitest",
+    url = "https://github.com/marilari88/neotest-vitest"
+  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/home/nathan-yik/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
