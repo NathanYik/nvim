@@ -68,3 +68,8 @@ map("n", "<Leader>dh", "<cmd>lua require('dapui').eval()<CR>", opts)
 map("n", "<Leader>di", "<cmd>lua require('dap').step_into()<CR>", opts)
 map("n", "<Leader>do", "<cmd>lua require('dap').step_out()<CR>", opts)
 map("n", "<Leader>dO", "<cmd>lua require('dap').step_over()<CR>", opts)
+
+map("n", "<Leader>tt", "<cmd>lua require('neotest').run.run()<CR>", opts)
+map("n", "<Leader>tf", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", opts)
+map("n", "<Leader>td", "<cmd>lua require('neotest').run.run({ strategy = 'dap' })<CR>", opts)
+map("n", "<Leader>to", "<cmd>lua require('neotest').output_panel.open()<CR>", opts)

@@ -159,6 +159,21 @@ _G.packer_plugins = {
     path = "/home/nathan-yik/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  neotest = {
+    loaded = true,
+    path = "/home/nathan-yik/.local/share/nvim/site/pack/packer/start/neotest",
+    url = "https://github.com/nvim-neotest/neotest"
+  },
+  ["neotest-jest"] = {
+    loaded = true,
+    path = "/home/nathan-yik/.local/share/nvim/site/pack/packer/start/neotest-jest",
+    url = "https://github.com/haydenmeade/neotest-jest"
+  },
+  ["neotest-rspec"] = {
+    loaded = true,
+    path = "/home/nathan-yik/.local/share/nvim/site/pack/packer/start/neotest-rspec",
+    url = "https://github.com/olimorris/neotest-rspec"
+  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/home/nathan-yik/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
