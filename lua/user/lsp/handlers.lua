@@ -31,7 +31,8 @@ M.setup = function()
 		severity_sort = true,
 		float = {
 			border = "rounded",
-			source = "always",
+			focusable = false,
+			source = true,
 		},
 	}
 
