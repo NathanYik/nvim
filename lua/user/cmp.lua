@@ -110,8 +110,9 @@ cmp.setup({
 		select = true,
 	},
 	window = {
-		completion = cmp.config.window.bordered(),
-		documentation = cmp.config.window.bordered(),
+		documentation = {
+			border = "rounded",
+		},
 	},
 	experimental = {
 		ghost_text = false,
