@@ -72,7 +72,7 @@ map("n", "<Leader>dx", "<cmd>lua require('dap').terminate()<CR>", opts)
 
 map("n", "<Leader>tt", "<cmd>lua require('neotest').run.run()<CR>", opts)
 map("n", "<Leader>tf", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", opts)
-map("n", "<Leader>td", "<cmd>lua require('neotest').run.run({ strategy = 'dap' })<CR>", opts)
+map("n", "<Leader>tr", "<cmd>lua require('neotest').run.run({ strategy = 'dap' })<CR>", opts)
 map("n", "<Leader>to", "<cmd>lua require('neotest').output.open()<CR>", opts)
 map("n", "<Leader>tp", "<cmd>lua require('neotest').output_panel.toggle()<CR>", opts)
 map("n", "<Leader>ts", "<cmd>lua require('neotest').summary.toggle()<CR>", opts)

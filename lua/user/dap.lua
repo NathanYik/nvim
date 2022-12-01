@@ -3,33 +3,33 @@ local dapui = require("dapui")
 local dap_vscode = require("dap-vscode-js")
 
 dapui.setup({})
-
-local javascript_settings = {
-	{
-		type = "chrome",
-		request = "launch",
-		program = "${file}",
-		cwd = vim.fn.getcwd(),
-		sourceMaps = true,
-		protocol = "inspector",
-		console = "integratedTerminal",
-	},
-}
-
-dap.adapters.chrome = {
-	type = "executable",
-	command = "node",
-	args = { vim.fn.stdpath("data") .. "/mason/packages/chrome-debug-adapter/out/src/chromeDebug.js" },
-}
-
-dap.configurations.javascript = javascript_settings
-
-dap.configurations.typescript = javascript_settings
-
-dap.configurations.javascriptreact = javascript_settings
-
-dap.configurations.typescriptreact = javascript_settings
-
+--
+-- local javascript_settings = {
+-- 	{
+-- 		type = "chrome",
+-- 		request = "launch",
+-- 		program = "${file}",
+-- 		cwd = vim.fn.getcwd(),
+-- 		sourceMaps = true,
+-- 		protocol = "inspector",
+-- 		console = "integratedTerminal",
+-- 	},
+-- }
+--
+-- dap.adapters.chrome = {
+-- 	type = "executable",
+-- 	command = "node",
+-- 	args = { vim.fn.stdpath("data") .. "/mason/packages/chrome-debug-adapter/out/src/chromeDebug.js" },
+-- }
+--
+-- dap.configurations.javascript = javascript_settings
+--
+-- dap.configurations.typescript = javascript_settings
+--
+-- dap.configurations.javascriptreact = javascript_settings
+--
+-- dap.configurations.typescriptreact = javascript_settings
+--
 vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
@@ -48,7 +48,7 @@ dap_vscode.setup({
 })
 
 for _, language in ipairs({ "typescript", "javascript" }) do
-	require("dap").configurations[language] = {
+	dap.configurations[language] = {
 		{
 			type = "pwa-node",
 			request = "launch",
@@ -63,20 +63,20 @@ for _, language in ipairs({ "typescript", "javascript" }) do
 			processId = require("dap.utils").pick_process,
 			cwd = "${workspaceFolder}",
 		},
-		{
-			type = "pwa-node",
-			request = "launch",
-			name = "Debug Jest Tests",
-			-- trace = true, -- include debugger info
-			runtimeExecutable = "node",
-			runtimeArgs = {
-				"./node_modules/jest/bin/jest.js",
-				"--runInBand",
-			},
-			rootPath = "${workspaceFolder}",
-			cwd = "${workspaceFolder}",
-			console = "integratedTerminal",
-			internalConsoleOptions = "neverOpen",
-		},
+		-- {
+		-- 	type = "pwa-node",
+		-- 	request = "launch",
+		-- 	name = "Debug Jest Tests",
+		-- 	-- trace = true, -- include debugger info
+		-- 	runtimeExecutable = "node",
+		-- 	runtimeArgs = {
+		-- 		"./node_modules/jest/bin/jest.js",
+		-- 		"--runInBand",
+		-- 	},
+		-- 	rootPath = "${workspaceFolder}",
+		-- 	cwd = "${workspaceFolder}",
+		-- 	console = "integratedTerminal",
+		-- 	internalConsoleOptions = "neverOpen",
+		-- },
 	}
 end
