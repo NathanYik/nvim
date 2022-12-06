@@ -13,5 +13,8 @@ null_ls.setup({
 		formatting.prettierd.with({
 			extra_args = { "--no-semi", "--single-quote" },
 		}),
+		-- formatting.prettier.with({
+		-- 	extra_args = { "--no-semi", "--single-quote" },
+		-- }),
 	},
 })
