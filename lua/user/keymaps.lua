@@ -23,6 +23,8 @@ map("n", "<A-h>", ":bprevious<CR>", opts)
 
 map("i", "jk", "<ESC>", opts)
 
+map("c", "wqa", "wa<CR><cmd>qa<CR>", opts)
+
 map("v", "<", "<gv", opts)
 map("v", ">", ">gv", opts)
 
