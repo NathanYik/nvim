@@ -1,13 +1,19 @@
 require("toggleterm").setup({
-	size = 20,
-	open_mapping = [[<c-\>]],
+	size = function(term)
+		if term.direction == "horizontal" then
+			return 15
+		elseif term.direction == "float" then
+			return 40
+		end
+	end,
+	open_mapping = [[<leader>w]],
 	hide_numbers = true,
 	shade_filetypes = {},
 	shade_terminals = true,
 	shading_factor = 1,
 	start_in_insert = true,
 	persist_size = true,
-	direction = "float",
+	direction = "horizontal",
 	float_opts = {
 		border = "curved",
 		width = 120,
@@ -17,18 +23,19 @@ require("toggleterm").setup({
 })
 
 function _G.set_terminal_keymaps()
-	local opts = { noremap = true }
-	-- vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
-	vim.api.nvim_buf_set_keymap(0, "t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
-	vim.api.nvim_buf_set_keymap(0, "t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
-	vim.api.nvim_buf_set_keymap(0, "t", "<C-k>", [[<C-\><C-n><C-W>k]], opts)
-	vim.api.nvim_buf_set_keymap(0, "t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
+	local opts = { buffer = 0, noremap = true }
+	local map = vim.keymap.set
+	-- map("t", "<esc>", [[<C-\><C-n>]], opts)
+	map("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
+	map("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
+	map("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
+	map("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
 end
 
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
 local terminal = require("toggleterm.terminal").Terminal
-local lazygit = terminal:new({ cmd = "lazygit", hidden = true })
+local lazygit = terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
 
 function _LAZYGIT_TOGGLE()
 	lazygit:toggle()
