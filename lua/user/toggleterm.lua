@@ -8,6 +8,7 @@ require("toggleterm").setup({
 	end,
 	open_mapping = [[<leader>w]],
 	hide_numbers = true,
+	insert_mappings = false,
 	shade_filetypes = {},
 	shade_terminals = true,
 	shading_factor = 1,
