@@ -4,9 +4,6 @@ if not status_ok then
 end
 
 vim.g.Illuminate_ftblacklist = { "NvimTree", "alpha" }
-vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = "#363636" })
-vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = "#363636" })
-vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#363636" })
 
 illuminate.configure({
 	providers = {

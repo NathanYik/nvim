@@ -15,11 +15,6 @@ M.setup = function()
 		{ name = "DiagnosticSignHint", text = "" },
 	}
 
-	vim.api.nvim_set_hl(0, "DiagnosticSignError", { fg = "#FF0000", bg = "#313335" })
-	vim.api.nvim_set_hl(0, "DiagnosticSignWarn", { fg = "#FFA500", bg = "#313335" })
-	vim.api.nvim_set_hl(0, "DiagnosticSignInfo", { fg = "#ADD8E6", bg = "#313335" })
-	vim.api.nvim_set_hl(0, "DiagnosticSignHint", { fg = "#D3D3D3", bg = "#313335" })
-
 	for _, sign in ipairs(signs) do
 		vim.fn.sign_define(sign.name, { text = sign.text, texthl = sign.name, numhl = "" })
 	end
