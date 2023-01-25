@@ -20,7 +20,6 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 require("lazy").setup({
 	"github/copilot.vim",
 	"folke/tokyonight.nvim",
-	"wbthomason/packer.nvim",
 	"nvim-lua/plenary.nvim",
 	"nvim-lua/popup.nvim",
 	"kylechui/nvim-surround",
