@@ -3,7 +3,6 @@ require("nvim-treesitter.configs").setup({
 	ensure_installed = { "tsx", "javascript", "typescript", "html", "css" },
 	highlight = {
 		enable = true,
-		additional_vim_regex_highlighting = true,
 	},
 	indent = {
 		enable = true,
