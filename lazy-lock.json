@@ -24,12 +24,13 @@
   "nvim-autopairs": { "branch": "master", "commit": "31042a5823b55c4bfb30efcbba2fc1b5b53f90dc" },
   "nvim-cmp": { "branch": "main", "commit": "11a95792a5be0f5a40bab5fc5b670e5b1399a939" },
   "nvim-dap": { "branch": "master", "commit": "c64a6627bb01eb151da96b28091797beaac09536" },
-  "nvim-dap-ui": { "branch": "master", "commit": "b80227ea56a48177786904f6322abc8b2dc0bc36" },
+  "nvim-dap-ui": { "branch": "master", "commit": "6b6081ad244ae5aa1358775cc3c08502b04368f9" },
   "nvim-dap-vscode-js": { "branch": "main", "commit": "e7c05495934a658c8aa10afd995dacd796f76091" },
   "nvim-lspconfig": { "branch": "master", "commit": "582842c158968a59ed5acf9439bc6eaf637f1839" },
+  "nvim-surround": { "branch": "main", "commit": "ad56e6234bf42fb7f7e4dccc7752e25abd5ec80e" },
   "nvim-toggleterm.lua": { "branch": "main", "commit": "a54e6c471ce1cd8ef8357e34598a28a955297131" },
   "nvim-tree.lua": { "branch": "master", "commit": "7944e479c18b7e79ff88a74cd829cf716d92aea5" },
-  "nvim-treesitter": { "branch": "master", "commit": "f3b8f00143669b7dd8d22f6bedbe98a0ff1a8317" },
+  "nvim-treesitter": { "branch": "master", "commit": "c7087b232213ab6936e38e853c3d7920ef8b3949" },
   "nvim-treesitter-context": { "branch": "master", "commit": "cacee4828152dd3a83736169ae61bbcd29a3d213" },
   "nvim-treesitter-textobjects": { "branch": "master", "commit": "df2b2b05705a1cf476a1124e7aadfccddba73ec3" },
   "nvim-ts-autotag": { "branch": "main", "commit": "fdefe46c6807441460f11f11a167a2baf8e4534b" },
@@ -46,7 +47,5 @@
   "vim-bbye": { "branch": "master", "commit": "25ef93ac5a87526111f43e5110675032dbcacf56" },
   "vim-fugitive": { "branch": "master", "commit": "2febbe1f00be04f16daa6464cb39214a8566ec4b" },
   "vim-illuminate": { "branch": "master", "commit": "4e1d43cdc39e35f495c7b39a78a349b4d5badad0" },
-  "vim-repeat": { "branch": "master", "commit": "24afe922e6a05891756ecf331f39a1f6743d3d5a" },
-  "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
   "vim-visual-multi": { "branch": "master", "commit": "724bd53adfbaf32e129b001658b45d4c5c29ca1a" }
 }

@@ -4,6 +4,7 @@ local options = {
 	conceallevel = 0,
 	clipboard = "unnamedplus",
 	cmdheight = 2,
+	cursorline = true,
 	expandtab = true,
 	foldmethod = "expr",
 	foldexpr = "nvim_treesitter#foldexpr()",
