@@ -74,6 +74,7 @@ require("lazy").setup({
 	"ahmedkhalf/project.nvim",
 	"jose-elias-alvarez/typescript.nvim",
 	"lukas-reineke/indent-blankline.nvim",
+	{ "kevinhwang91/nvim-ufo", dependencies = { "kevinhwang91/promise-async" } },
 	{
 		"nvim-neotest/neotest",
 		dependencies = { "haydenmeade/neotest-jest", "olimorris/neotest-rspec", "marilari88/neotest-vitest" },

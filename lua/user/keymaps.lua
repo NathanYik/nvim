@@ -35,6 +35,9 @@ map("v", "p", '"_dP', opts)
 map("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 map("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
+-- map("n", "zR", require("ufo").openAllFolds, opts)
+-- map("n", "zM", require("ufo").closeAllFolds, opts)
+
 map("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 
 map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", opts)
