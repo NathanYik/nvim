@@ -11,6 +11,9 @@ map("n", "<C-j>", "<C-w>j", opts)
 map("n", "<C-k>", "<C-w>k", opts)
 map("n", "<C-l>", "<C-w>l", opts)
 
+map("n", "j", "gj", opts)
+map("n", "k", "gk", opts)
+
 map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts)
 
 map("n", "<A-Up>", ":resize -2<CR>", opts)
