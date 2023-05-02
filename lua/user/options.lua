@@ -13,7 +13,7 @@ local options = {
 	foldlevel = 99,
 	foldlevelstart = 99,
 	fileencoding = "utf-8",
-	fillchars = { eob = " " },
+	fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]],
 	hlsearch = true,
 	ignorecase = true,
 	laststatus = 3,

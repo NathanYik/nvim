@@ -66,6 +66,7 @@ require("lazy").setup({
 	"mg979/vim-visual-multi",
 	"lewis6991/gitsigns.nvim",
 	"kyazdani42/nvim-web-devicons",
+	{ "sindrets/diffview.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
 	"kyazdani42/nvim-tree.lua",
 	"akinsho/bufferline.nvim",
 	"akinsho/nvim-toggleterm.lua",
