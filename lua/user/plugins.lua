@@ -78,6 +78,7 @@ require("lazy").setup({
 	"kevinhwang91/nvim-hlslens",
 	{ "kevinhwang91/nvim-ufo", dependencies = { "kevinhwang91/promise-async" } },
 	"petertriho/nvim-scrollbar",
+	"ThePrimeagen/refactoring.nvim",
 	{
 		"nvim-neotest/neotest",
 		dependencies = { "haydenmeade/neotest-jest", "olimorris/neotest-rspec", "marilari88/neotest-vitest" },
