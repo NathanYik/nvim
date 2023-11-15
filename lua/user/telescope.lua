@@ -24,12 +24,12 @@ telescope.setup({
 			},
 		},
 		live_grep = {
-			theme = "dropdown",
-			layout_config = {
-				height = 0.6,
-				mirror = true,
-				anchor = "N",
-			},
+			-- theme = "dropdown",
+			-- layout_config = {
+			-- 	height = 0.6,
+			-- 	mirror = true,
+			-- 	anchor = "N",
+			-- },
 		},
 		buffers = {
 			theme = "dropdown",
