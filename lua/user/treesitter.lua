@@ -1,5 +1,6 @@
 require("nvim-treesitter")
 require("nvim-treesitter.configs").setup({
+	auto_install = true,
 	ensure_installed = { "tsx", "javascript", "typescript", "html", "css" },
 	highlight = {
 		enable = true,
