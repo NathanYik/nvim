@@ -13,6 +13,10 @@ map("n", "<Leader>l", "<Cmd>noh<CR>", opts)
 require("scrollbar").setup({
 	throttle_ms = 0,
 	show_in_active_only = true,
+	handle = {
+		blend = 50,
+		color = "#33467C",
+	},
 	marks = {
 		GitAdd = { text = "▁" },
 		GitChange = { text = "▁" },

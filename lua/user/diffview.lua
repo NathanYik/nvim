@@ -1,4 +1,4 @@
-vim.opt.fillchars:append({ diff = "/" })
+vim.opt.fillchars:append({ diff = "╱" })
 
 require("diffview.actions")
 require("diffview").setup({
