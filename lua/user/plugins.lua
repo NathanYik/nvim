@@ -61,7 +61,6 @@ require("lazy").setup({
 	"jose-elias-alvarez/null-ls.nvim",
 	"mfussenegger/nvim-dap",
 	"rcarriga/nvim-dap-ui",
-	"mxsdev/nvim-dap-vscode-js",
 	"RRethy/vim-illuminate",
 	"mg979/vim-visual-multi",
 	"lewis6991/gitsigns.nvim",
@@ -80,6 +79,7 @@ require("lazy").setup({
 	"petertriho/nvim-scrollbar",
 	"ThePrimeagen/refactoring.nvim",
 	"luukvbaal/statuscol.nvim",
+	"jay-babu/mason-nvim-dap.nvim",
 	{
 		"nvim-neotest/neotest",
 		dependencies = { "haydenmeade/neotest-jest", "olimorris/neotest-rspec", "marilari88/neotest-vitest" },
