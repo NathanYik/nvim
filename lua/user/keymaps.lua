@@ -69,7 +69,8 @@ end, opts)
 
 map("n", "<Leader>dv", "<cmd>DiffviewOpen<CR>", opts)
 map("n", "<Leader>dc", "<cmd>DiffviewClose<CR>", opts)
-map("n", "<Leader>df", "<cmd>DiffviewFileHistory<CR>", opts)
+map("n", "<Leader>dfa", "<cmd>DiffviewFileHistory<CR>", opts)
+map("n", "<Leader>dff", "<cmd>DiffviewFileHistory %<CR>", opts)
 
 map("x", "<leader>re", ":Refactor extract ")
 map("x", "<leader>rf", ":Refactor extract_to_file ")
