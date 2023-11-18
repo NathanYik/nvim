@@ -80,6 +80,7 @@ require("lazy").setup({
 	"ThePrimeagen/refactoring.nvim",
 	"luukvbaal/statuscol.nvim",
 	"jay-babu/mason-nvim-dap.nvim",
+	"Mofiqul/vscode.nvim",
 	{
 		"nvim-neotest/neotest",
 		dependencies = { "haydenmeade/neotest-jest", "olimorris/neotest-rspec", "marilari88/neotest-vitest" },
