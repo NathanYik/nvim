@@ -5,6 +5,10 @@ end
 
 vim.g.Illuminate_ftblacklist = { "NvimTree", "alpha" }
 
+vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = "#484848" })
+vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = "#484848" })
+vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#484848" })
+
 illuminate.configure({
 	providers = {
 		"lsp",
