@@ -11,9 +11,10 @@ require("rainbow-delimiters.setup").setup({
 	},
 	query = {
 		[""] = "rainbow-delimiters",
+		jsx = "rainbow-parens",
 		tsx = "rainbow-parens",
 		typescript = "rainbow-parens",
-		javascript = "rainbow-delimiters-react",
+		javascript = "rainbow-parens",
 	},
 	highlight = {
 		"BracketYellow",
