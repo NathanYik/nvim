@@ -39,11 +39,11 @@ M.setup = function()
 		vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 end
 
-vim.api.nvim_create_autocmd("CursorHold", {
-	pattern = "*",
-	command = "lua vim.diagnostic.open_float()",
-	group = vim.api.nvim_create_augroup("lsp_open_float_on_hover", {}),
-})
+-- vim.api.nvim_create_autocmd("CursorHold", {
+-- 	pattern = "*",
+-- 	command = "lua vim.diagnostic.open_float()",
+-- 	group = vim.api.nvim_create_augroup("lsp_open_float_on_hover", {}),
+-- })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
