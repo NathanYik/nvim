@@ -14,7 +14,7 @@ require("scrollbar").setup({
 	throttle_ms = 0,
 	show_in_active_only = true,
 	handle = {
-		color = "#33467C",
+		color = "#4F4F4F",
 	},
 	marks = {
 		GitAdd = { text = "▁" },

@@ -80,6 +80,7 @@ require("lazy").setup({
 	"ThePrimeagen/refactoring.nvim",
 	"luukvbaal/statuscol.nvim",
 	"jay-babu/mason-nvim-dap.nvim",
+	"hiphish/rainbow-delimiters.nvim",
 	"Mofiqul/vscode.nvim",
 	{
 		"nvim-neotest/neotest",
